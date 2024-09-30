@@ -1,0 +1,32 @@
+scrape large xml file insert into postgres and elastic search find mostly similar products and write its uuid into postgres table
+
+    {
+        "uuid": "60002e76-8249-4b7c-a6b5-4452a27304c3",
+        "product_id": 101714039841,
+        "title": "Матовый Soft Touch силиконовый чехол на Realme 8i, Рилми 8 ай с 3D принтом \"CorgiMania\" черный",
+        "similar_sku": "[{'uuid': UUID('ec566d96-f143-4f6f-8266-b0a5915c5a9d'), 'title': 'Силиконовый чехол на Realme 9i, Рилми 9и с 3D принтом \"CorgiMania\" прозрачный'}]"
+    },
+    {
+        "uuid": "3895c60f-4743-4870-941d-c8bd90eb4887",
+        "product_id": 103289855287,
+        "title": "Чехол на Samsung Galaxy S24 Plus / Самсунг S24 Plus с принтом Кот на кровати",
+        "similar_sku": "[{'uuid': UUID('30640c6a-0afc-4973-9790-d401f79da0db'), 'title': 'Чехол на Samsung Galaxy S24 Plus / Самсунг S24 Plus с принтом Кот на дереве'}]"
+    },
+    {
+        "uuid": "8e0bd57f-3a2e-4cc4-b865-21e5fec2ba85",
+        "product_id": 101714039826,
+        "title": "Матовый Soft Touch силиконовый чехол на Realme 8i, Рилми 8 ай с 3D принтом \"Avo-Sport\" черный",
+        "similar_sku": "[{'uuid': UUID('fc4da46e-06e2-4073-82e4-e1d6a43fba68'), 'title': 'Матовый Soft Touch силиконовый чехол на Realme 8i, Рилми 8 ай с 3D принтом \"Avo-Karate\" черный'}]"
+    },
+    {
+        "uuid": "3d067563-6dfa-4788-9bc2-c2d163940c41",
+        "product_id": 101710374801,
+        "title": "Чехол-книжка MyPads для Samsung Galaxy A03s (SM-A037F) 2021 синий",
+        "similar_sku": "[{'uuid': UUID('0f9c8207-0ac2-42aa-b8ae-7c86fcc9fefd'), 'title': 'Чехол-панель-бампер MyPads для Google Pixel 7A из силикона с матовой отделкой «под карбон» черная'}]"
+    },
+    {
+        "uuid": "97d9d2c8-57ae-4ab6-9db2-8525d0d72a53",
+        "product_id": 102076721126,
+        "title": "Умная портативная мини камера / регистратор / видеонаблюдения WI-FI / для скрытого наблюдения",
+        "similar_sku": "[{'uuid': UUID('de926279-0a42-48cd-9596-6108e8de068e'), 'title': 'Наушники беспроводные накладные детские \"Стич\" с ушками Блютуз гарнитура для телефона, смартфона, компьютера bluetooth tws'}]"
+    }

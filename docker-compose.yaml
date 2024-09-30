@@ -1,0 +1,69 @@
+services:
+   postgres:
+      container_name: postgres
+      build:
+         context: ./postgres/
+         dockerfile: Dockerfile
+      restart: always
+      expose:
+         - 5432
+      environment:
+         - POSTGRES_DB=data
+         - POSTGRES_USER=user
+         - POSTGRES_PASSWORD=admin
+         - POSTGRES_PORT=5432
+      ports:
+         - "5432:5432"
+      volumes:
+         - postgresvolume:/var/lib/postgresql/data
+      networks:
+         - esnet
+   
+   elasticsearch:
+      image: docker.elastic.co/elasticsearch/elasticsearch:8.15.1
+      container_name: es01
+      expose:
+         - 9200
+         - 9300
+      environment:
+         - discovery.type=single-node
+         - bootstrap.memory_lock=true
+         - xpack.security.enabled=false
+         - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      volumes:
+         - esdata:/usr/share/elasticsearch/data
+      ports: 
+         - "9200:9200"
+         - "9300:9300"
+      healthcheck:
+         test: ["CMD-SHELL", "curl -f http://localhost:9200 || exit 1"]
+         interval: 10s
+         timeout: 5s
+         retries: 3
+      networks:
+         - esnet
+    
+   scraper:
+      container_name: scraper
+      build:
+         context: ./python/
+         dockerfile: Dockerfile
+      depends_on:
+         elasticsearch:
+            condition: service_healthy
+         postgres:
+            condition: service_started
+      volumes:
+         - ./python:/home/sardor/python
+      networks:
+         - esnet
+ 
+volumes:
+  postgresvolume:
+  esdata:
+     driver: local
+  
+networks:
+   esnet:
+     driver: bridge
+
